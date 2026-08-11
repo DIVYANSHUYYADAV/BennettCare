@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BennettCare – No Student Should Stay Hungry or Stranded</title>
+  <meta name="description" content="BennettCare is a student-powered campus assistance platform designed to help Bennett University students access food, collect deliveries, and receive basic campus assistance when illness, injury, or mobility issues prevent them from doing it themselves." />
+  <meta name="author" content="Ojasvee Tyagi, S24SCSET102, Bennett University" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- NAVIGATION BAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#" class="nav-logo" onclick="showPage('home')">
+      <span class="logo-icon">🏥</span>
+      <span class="logo-text">Bennett<span class="logo-accent">Care</span></span>
+    </a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#" class="nav-link" onclick="showPage('home')" data-page="home">Home</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('how-it-works')" data-page="how-it-works">How It Works</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('request-food')" data-page="request-food">Request Help</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('volunteer')" data-page="volunteer">Volunteer</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('track')" data-page="track">Track Request</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('safety')" data-page="safety">Safety</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('about')" data-page="about">About</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-login" onclick="showPage('dashboard')" id="loginBtn">Login</button>
+      <button class="btn-primary" onclick="showPage('request-food')">Request Assistance</button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE: HOME -->
+<main id="page-home" class="page active">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">🎓 Bennett University · Student Initiative</div>
+      <h1 class="hero-title">Bennett<span class="accent">Care</span></h1>
+      <p class="hero-tagline">No Student Should Stay Hungry or Stranded.</p>
+      <p class="hero-description">A student-powered campus assistance platform designed to help Bennett University students access food, collect deliveries, and receive basic campus assistance when illness, injury, or mobility issues prevent them from doing it themselves.</p>
+      <div class="hero-cta">
+        <button class="btn-primary btn-large" onclick="showPage('request-food')"><span>🆘</span> Request Assistance</button>
+        <button class="btn-secondary btn-large" onclick="showPage('volunteer')"><span>🙋</span> Become a Volunteer</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-pill">✅ 120+ Students Helped</div>
+        <div class="stat-pill">🤝 85+ Volunteers</div>
+        <div class="stat-pill">⚡ 24/7 Support</div>
+        <small class="demo-note">* Demo statistics for prototype</small>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-image-container">
+        <img src="hero_illustration.png" alt="Student in hostel room connects to volunteer who collects food from mess and delivers it" class="hero-img" />
+        <div class="hero-flow-overlay">
+          <div class="flow-chip chip-1">😷 Sick Student</div>
+          <div class="flow-chip chip-2">🙋 Volunteer</div>
+          <div class="flow-chip chip-3">🏠 Hostel Room</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM SECTION -->
+  <section class="section section-alt" id="problem">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">The Problem</span>
+        <h2 class="section-title">A Small Problem Can Become a Big Problem</h2>
+        <p class="section-subtitle">Many students face situations where reaching the mess or hostel gate is simply not possible.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="problem-card"><div class="card-icon">🍽️</div><h3>Food Access</h3><p>Students need to physically reach the mess and scan their assigned QR code to collect their meal — every single time.</p></div>
+        <div class="problem-card"><div class="card-icon">🤒</div><h3>Sick or Injured Students</h3><p>A student who is sick or injured may not be physically capable of reaching the mess, leaving them without food.</p></div>
+        <div class="problem-card"><div class="card-icon">📦</div><h3>Delivery Collection</h3><p>Students generally need to reach the hostel gate to collect their food or package deliveries — impossible when bedridden.</p></div>
+        <div class="problem-card"><div class="card-icon">🧑‍🤝‍🧑</div><h3>Students Without Support</h3><p>Not every student has friends nearby who can collect food or packages on their behalf when they need it most.</p></div>
+      </div>
+      <div class="problem-highlight">
+        <div class="highlight-icon">⚠️</div>
+        <p><strong>Being alone should never mean staying hungry or missing an essential delivery.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge solution-badge">The Solution</span>
+        <h2 class="section-title">Introducing BennettCare</h2>
+        <p class="section-subtitle">BennettCare connects students who need temporary assistance with verified student volunteers who are willing to help.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="solution-card"><div class="card-icon-wrap blue">🍛</div><h3>Mess Assistance</h3><p>A student can request a volunteer to collect their meal from the mess and bring it directly to their hostel room.</p><a href="#" class="card-link" onclick="showPage('request-food')">Request Food →</a></div>
+        <div class="solution-card"><div class="card-icon-wrap green">📦</div><h3>Delivery Assistance</h3><p>A volunteer can collect a student's package from the hostel gate and deliver it safely to their room.</p><a href="#" class="card-link" onclick="showPage('request-delivery')">Request Delivery →</a></div>
+        <div class="solution-card"><div class="card-icon-wrap purple">🛏️</div><h3>Room-to-Room Support</h3><p>Students who cannot leave their room can request assistance without depending entirely on close friends.</p><a href="#" class="card-link" onclick="showPage('request-food')">Get Support →</a></div>
+        <div class="solution-card"><div class="card-icon-wrap orange">🤝</div><h3>Student Volunteer Network</h3><p>Students can voluntarily help others and contribute to a supportive, inclusive campus community.</p><a href="#" class="card-link" onclick="showPage('volunteer')">Join Network →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS mini -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Simple & Fast</span>
+        <h2 class="section-title">How BennettCare Works</h2>
+      </div>
+      <div class="steps-flow">
+        <div class="step-item"><div class="step-circle">1</div><div class="step-content"><h4>Request</h4><p>Submit your assistance request</p></div></div>
+        <div class="step-arrow">→</div>
+        <div class="step-item"><div class="step-circle">2</div><div class="step-content"><h4>Verify</h4><p>Your details are verified</p></div></div>
+        <div class="step-arrow">→</div>
+        <div class="step-item"><div class="step-circle">3</div><div class="step-content"><h4>Volunteer</h4><p>A volunteer accepts your request</p></div></div>
+        <div class="step-arrow">→</div>
+        <div class="step-item"><div class="step-circle">4</div><div class="step-content"><h4>Delivered</h4><p>Food arrives at your hostel room</p></div></div>
+      </div>
+      <div class="cta-center"><button class="btn-primary" onclick="showPage('how-it-works')">See Full Details →</button></div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY IMPACT -->
+  <section class="section impact-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Our Impact</span>
+        <h2 class="section-title">Building a More Supportive Campus</h2>
+        <p class="section-subtitle demo-label">* These are prototype/demo statistics and do not represent real data.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number" data-target="120">0</div><div class="stat-suffix">+</div><div class="stat-label">Students Helped</div></div>
+        <div class="stat-card"><div class="stat-number" data-target="85">0</div><div class="stat-suffix">+</div><div class="stat-label">Student Volunteers</div></div>
+        <div class="stat-card"><div class="stat-number" data-target="200">0</div><div class="stat-suffix">+</div><div class="stat-label">Successful Requests</div></div>
+        <div class="stat-card"><div class="stat-number">24/7</div><div class="stat-suffix"></div><div class="stat-label">Community Support</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Comparison</span>
+        <h2 class="section-title">Why BennettCare?</h2>
+      </div>
+      <div class="comparison-table-wrap">
+        <table class="comparison-table">
+          <thead><tr><th>❌ Existing Situation</th><th>✅ BennettCare Solution</th></tr></thead>
+          <tbody>
+            <tr><td>Student must physically reach the mess</td><td>Volunteer collects food on their behalf</td></tr>
+            <tr><td>Student depends entirely on close friends</td><td>Verified volunteer network — always available</td></tr>
+            <tr><td>Student must walk to the hostel gate</td><td>Volunteer collects the delivery from gate</td></tr>
+            <tr><td>No centralized assistance system</td><td>Centralized, structured request platform</td></tr>
+            <tr><td>Isolated students have no formal support</td><td>Community-based support for every student</td></tr>
+            <tr><td>Manual and informal communication</td><td>Structured request tracking and accountability</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE MESSAGE -->
+  <section class="section core-message-section">
+    <div class="container">
+      <div class="core-message-card">
+        <div class="core-quote">"If you cannot reach the mess or the gate,<br>the help can reach <em>you</em>."</div>
+        <p class="core-sub">BennettCare creates a structured bridge between students in need and verified student volunteers.</p>
+        <div class="bridge-flow">
+          <div class="bridge-node need">Students in Need</div>
+          <div class="bridge-arrow">↔</div>
+          <div class="bridge-node volunteers">Verified Volunteers</div>
+          <div class="bridge-arrow">↔</div>
+          <div class="bridge-node campus">Campus Facilities</div>
+        </div>
+        <div class="hero-cta mt-2">
+          <button class="btn-primary btn-large" onclick="showPage('request-food')">Get Assistance Now</button>
+          <button class="btn-outline btn-large" onclick="showPage('volunteer')">Start Volunteering</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUTURE SCOPE -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Roadmap</span>
+        <h2 class="section-title">Future Possibilities</h2>
+        <p class="section-subtitle">This prototype could eventually integrate with Bennett University's existing systems.</p>
+      </div>
+      <div class="future-grid">
+        <div class="future-item">🔐 Bennett University Student Login</div>
+        <div class="future-item">🪪 University ID Verification</div>
+        <div class="future-item">📱 Mess QR Integration</div>
+        <div class="future-item">🏠 Hostel Management System</div>
+        <div class="future-item">⚡ Real-Time Volunteer Matching</div>
+        <div class="future-item">🔔 Push Notifications</div>
+        <div class="future-item">🚦 Request Prioritization</div>
+        <div class="future-item">📍 Live Request Tracking</div>
+        <div class="future-item">🧾 Digital Food Authorization</div>
+        <div class="future-item">📞 Emergency Contact Integration</div>
+        <div class="future-item">🤖 AI-Based Request Prioritization</div>
+        <div class="future-item">⭐ Volunteer Reputation System</div>
+        <div class="future-item">🖥️ Admin Dashboard</div>
+        <div class="future-item">📊 Analytics &amp; Reporting</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- PAGE: HOW IT WORKS -->
+<main id="page-how-it-works" class="page">
+  <section class="page-hero blue-hero">
+    <div class="container">
+      <span class="section-badge white-badge">Simple Process</span>
+      <h1 class="page-hero-title">How BennettCare Works</h1>
+      <p class="page-hero-sub">Four simple steps from request to delivery.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="how-steps-vertical">
+        <div class="v-step">
+          <div class="v-step-num">01</div>
+          <div class="v-step-icon">📱</div>
+          <div class="v-step-body">
+            <h3>Step 1 — Request</h3>
+            <p>The student opens BennettCare on their device and submits an assistance request. They fill in their name, enrollment number, hostel, room number, and the type of help needed.</p>
+            <ul><li>Choose assistance type</li><li>Add special instructions</li><li>Specify preferred time</li></ul>
+          </div>
+        </div>
+        <div class="v-connector"></div>
+        <div class="v-step">
+          <div class="v-step-num">02</div>
+          <div class="v-step-icon">✅</div>
+          <div class="v-step-body">
+            <h3>Step 2 — Verification</h3>
+            <p>The platform verifies the student's basic details and the nature of the request to ensure authenticity and prevent misuse. Only enrolled Bennett University students can submit requests.</p>
+            <ul><li>Enrollment number validation</li><li>Request type categorization</li><li>Priority classification</li></ul>
+          </div>
+        </div>
+        <div class="v-connector"></div>
+        <div class="v-step">
+          <div class="v-step-num">03</div>
+          <div class="v-step-icon">🙋</div>
+          <div class="v-step-body">
+            <h3>Step 3 — Volunteer Accepts</h3>
+            <p>A nearby, available, verified student volunteer receives the request notification and accepts it. Volunteers are pre-registered students who have agreed to the platform's code of conduct.</p>
+            <ul><li>Nearest available volunteer notified</li><li>Volunteer accepts and confirms</li><li>Student receives volunteer details</li></ul>
+          </div>
+        </div>
+        <div class="v-connector"></div>
+        <div class="v-step">
+          <div class="v-step-num">04</div>
+          <div class="v-step-icon">🏠</div>
+          <div class="v-step-body">
+            <h3>Step 4 — Assistance Delivered</h3>
+            <p>The volunteer collects the food from the mess or the package from the gate and delivers it directly to the student's hostel room. The student confirms receipt, completing the request.</p>
+            <ul><li>Volunteer collects food/package</li><li>Delivers to hostel room</li><li>Student confirms receipt</li><li>Request marked complete</li></ul>
+          </div>
+        </div>
+      </div>
+      <div class="flow-diagram">
+        <div class="flow-box">😷<br/>Student</div>
+        <div class="flow-arr">→</div>
+        <div class="flow-box">📱<br/>Request</div>
+        <div class="flow-arr">→</div>
+        <div class="flow-box">🙋<br/>Volunteer</div>
+        <div class="flow-arr">→</div>
+        <div class="flow-box">🍛<br/>Mess/Gate</div>
+        <div class="flow-arr">→</div>
+        <div class="flow-box">🏠<br/>Your Room</div>
+      </div>
+      <div class="cta-center mt-3"><button class="btn-primary btn-large" onclick="showPage('request-food')">Make a Request Now</button></div>
+    </div>
+  </section>
+</main>
+
+<!-- PAGE: REQUEST FOOD -->
+<main id="page-request-food" class="page">
+  <section class="page-hero green-hero">
+    <div class="container">
+      <span class="section-badge white-badge">Mess Assistance</span>
+      <h1 class="page-hero-title">🍛 Request Food Assistance</h1>
+      <p class="page-hero-sub">Submit a request and a verified volunteer will collect your meal from the mess and bring it to your room.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container form-container">
+      <div class="form-card" id="foodFormCard">
+        <div class="form-header">
+          <h2>Food Collection Request</h2>
+          <p class="proto-note">⚠️ This prototype demonstrates the request workflow. Actual mess authorization, QR verification, and university approval would need to be integrated with Bennett University's existing systems.</p>
+        </div>
+        <form id="foodForm" class="form" onsubmit="submitForm(event, 'food')">
+          <div class="form-row">
+            <div class="form-group"><label for="ff-name">Student Name <span class="required">*</span></label><input type="text" id="ff-name" placeholder="Your full name" required /></div>
+            <div class="form-group"><label for="ff-enroll">Enrollment Number <span class="required">*</span></label><input type="text" id="ff-enroll" placeholder="e.g. S24SCSET102" required /></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label for="ff-hostel">Hostel / Residence <span class="required">*</span></label><select id="ff-hostel" required><option value="">Select Hostel</option><option>Boys Hostel A</option><option>Boys Hostel B</option><option>Boys Hostel C</option><option>Girls Hostel A</option><option>Girls Hostel B</option><option>Other</option></select></div>
+            <div class="form-group"><label for="ff-room">Room Number <span class="required">*</span></label><input type="text" id="ff-room" placeholder="e.g. 304" required /></div>
+          </div>
+          <div class="form-group"><label for="ff-contact">Contact Number <span class="required">*</span></label><input type="tel" id="ff-contact" placeholder="Your mobile number" required /></div>
+          <div class="form-group">
+            <label>Meal Type <span class="required">*</span></label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="meal" value="Breakfast" required /> Breakfast</label>
+              <label class="radio-label"><input type="radio" name="meal" value="Lunch" /> Lunch</label>
+              <label class="radio-label"><input type="radio" name="meal" value="Evening Snacks" /> Evening Snacks</label>
+              <label class="radio-label"><input type="radio" name="meal" value="Dinner" /> Dinner</label>
+            </div>
+          </div>
+          <div class="form-group"><label for="ff-reason">Reason for Request <span class="required">*</span></label><select id="ff-reason" required><option value="">Select Reason</option><option>Sick / Unwell</option><option>Injured</option><option>Mobility Issue</option><option>Other</option></select></div>
+          <div class="form-group"><label for="ff-time">Preferred Delivery Time</label><input type="time" id="ff-time" /></div>
+          <div class="form-group"><label for="ff-notes">Additional Instructions</label><textarea id="ff-notes" rows="3" placeholder="Any specific instructions for the volunteer..."></textarea></div>
+          <button type="submit" class="btn-primary btn-large btn-full">🍛 Submit Food Assistance Request</button>
+        </form>
+      </div>
+      <div class="success-card hidden" id="foodSuccess">
+        <div class="success-icon">✅</div>
+        <h2>Request Submitted Successfully!</h2>
+        <div class="request-id-box"><span>Request ID</span><strong id="foodRequestId">BC1025</strong></div>
+        <div class="status-pill status-pending">⏳ Waiting for Volunteer</div>
+        <p>Your food assistance request has been submitted. A verified volunteer will be assigned shortly.</p>
+        <div class="success-actions">
+          <button class="btn-primary" onclick="showPage('track')">Track Request</button>
+          <button class="btn-outline" onclick="resetForm('food')">New Request</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- PAGE: REQUEST DELIVERY -->
+<main id="page-request-delivery" class="page">
+  <section class="page-hero purple-hero">
+    <div class="container">
+      <span class="section-badge white-badge">Gate Delivery</span>
+      <h1 class="page-hero-title">📦 Request Delivery Assistance</h1>
+      <p class="page-hero-sub">Can't reach the hostel gate? A volunteer will collect your package and bring it to your room.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container form-container">
+      <div class="form-card" id="deliveryFormCard">
+        <div class="form-header"><h2>Delivery Collection Request</h2></div>
+        <form id="deliveryForm" class="form" onsubmit="submitForm(event, 'delivery')">
+          <div class="form-row">
+            <div class="form-group"><label for="df-name">Student Name <span class="required">*</span></label><input type="text" id="df-name" placeholder="Your full name" required /></div>
+            <div class="form-group"><label for="df-enroll">Enrollment Number <span class="required">*</span></label><input type="text" id="df-enroll" placeholder="e.g. S24SCSET102" required /></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label for="df-hostel">Hostel <span class="required">*</span></label><select id="df-hostel" required><option value="">Select Hostel</option><option>Boys Hostel A</option><option>Boys Hostel B</option><option>Boys Hostel C</option><option>Girls Hostel A</option><option>Girls Hostel B</option></select></div>
+            <div class="form-group"><label for="df-room">Room Number <span class="required">*</span></label><input type="text" id="df-room" placeholder="e.g. 204" required /></div>
+          </div>
+          <div class="form-group"><label for="df-type">Delivery Type <span class="required">*</span></label><select id="df-type" required><option value="">Select Type</option><option>Food Delivery (Swiggy/Zomato)</option><option>E-commerce Package (Amazon/Flipkart)</option><option>Medicine / Essential Item</option><option>Other</option></select></div>
+          <div class="form-row">
+            <div class="form-group"><label for="df-expected">Expected Delivery Time</label><input type="time" id="df-expected" /></div>
+            <div class="form-group"><label for="df-gate">Gate Information</label><input type="text" id="df-gate" placeholder="e.g. Main Gate, Gate 2..." /></div>
+          </div>
+          <div class="form-group"><label for="df-notes">Additional Instructions</label><textarea id="df-notes" rows="3" placeholder="Package description, tracking number, special instructions..."></textarea></div>
+          <button type="submit" class="btn-primary btn-large btn-full">📦 Request Delivery Assistance</button>
+        </form>
+      </div>
+      <div class="success-card hidden" id="deliverySuccess">
+        <div class="success-icon">✅</div>
+        <h2>Delivery Request Submitted!</h2>
+        <div class="request-id-box"><span>Request ID</span><strong id="deliveryRequestId">BC1026</strong></div>
+        <div class="status-pill status-pending">⏳ Waiting for Volunteer</div>
+        <p>Your delivery assistance request has been submitted. A volunteer will be assigned to collect your package shortly.</p>
+        <div class="success-actions">
+          <button class="btn-primary" onclick="showPage('track')">Track Request</button>
+          <button class="btn-outline" onclick="resetForm('delivery')">New Request</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- PAGE: VOLUNTEER -->
+<main id="page-volunteer" class="page">
+  <section class="page-hero orange-hero">
+    <div class="container">
+      <span class="section-badge white-badge">Join Us</span>
+      <h1 class="page-hero-title">🙋 Be the Reason Someone Gets Help Today.</h1>
+      <p class="page-hero-sub">If you are healthy, available, and willing to help, become a BennettCare volunteer.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="volunteer-layout">
+        <div class="volunteer-info">
+          <h2>Why Volunteer?</h2>
+          <div class="vol-benefit"><span class="vol-icon">❤️</span><div><h4>Make a Real Difference</h4><p>Help a fellow student get their meal when they cannot do it themselves.</p></div></div>
+          <div class="vol-benefit"><span class="vol-icon">🏅</span><div><h4>Build Community</h4><p>Contribute to a more caring, inclusive campus environment at Bennett University.</p></div></div>
+          <div class="vol-benefit"><span class="vol-icon">📋</span><div><h4>Verified &amp; Safe</h4><p>All volunteers are verified Bennett University students with a clear code of conduct.</p></div></div>
+          <div class="vol-benefit"><span class="vol-icon">⏰</span><div><h4>Flexible Availability</h4><p>Help whenever you're free — set your own availability and preferred assistance types.</p></div></div>
+        </div>
+        <div id="volFormCard">
+          <div class="form-card">
+            <div class="form-header"><h2>Volunteer Registration</h2></div>
+            <form id="volForm" class="form" onsubmit="submitForm(event, 'volunteer')">
+              <div class="form-row">
+                <div class="form-group"><label for="vf-name">Full Name <span class="required">*</span></label><input type="text" id="vf-name" placeholder="Your full name" required /></div>
+                <div class="form-group"><label for="vf-enroll">Enrollment Number <span class="required">*</span></label><input type="text" id="vf-enroll" placeholder="e.g. S24SCSET102" required /></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label for="vf-hostel">Hostel <span class="required">*</span></label><select id="vf-hostel" required><option value="">Select Hostel</option><option>Boys Hostel A</option><option>Boys Hostel B</option><option>Boys Hostel C</option><option>Girls Hostel A</option><option>Girls Hostel B</option></select></div>
+                <div class="form-group"><label for="vf-room">Room / Block <span class="required">*</span></label><input type="text" id="vf-room" placeholder="e.g. A-204" required /></div>
+              </div>
+              <div class="form-group"><label for="vf-contact">Contact Number <span class="required">*</span></label><input type="tel" id="vf-contact" placeholder="Your mobile number" required /></div>
+              <div class="form-group"><label for="vf-avail">Availability</label><select id="vf-avail"><option>Weekdays (Mon–Fri)</option><option>Weekends (Sat–Sun)</option><option>Mornings (8am–12pm)</option><option>Afternoons (12pm–5pm)</option><option>Evenings (5pm–9pm)</option><option>Flexible / Anytime</option></select></div>
+              <div class="form-group">
+                <label>Preferred Assistance Types</label>
+                <div class="checkbox-group">
+                  <label class="check-label"><input type="checkbox" value="food" /> 🍛 Food Collection from Mess</label>
+                  <label class="check-label"><input type="checkbox" value="package" /> 📦 Package Collection from Gate</label>
+                  <label class="check-label"><input type="checkbox" value="delivery" /> 🏠 Room Delivery</label>
+                  <label class="check-label"><input type="checkbox" value="general" /> 🤝 General Assistance</label>
+                </div>
+              </div>
+              <button type="submit" class="btn-primary btn-large btn-full">🙋 Join as a Volunteer</button>
+            </form>
+          </div>
+        </div>
+        <div class="success-card hidden" id="volSuccess">
+          <div class="success-icon">🎉</div>
+          <h2>Welcome to BennettCare!</h2>
+          <p>You've been registered as a BennettCare volunteer. You'll receive notifications when students nearby need assistance. Thank you!</p>
+          <div class="status-pill status-active">✅ Volunteer Active</div>
+          <div class="success-actions">
+            <button class="btn-primary" onclick="showPage('dashboard')">Go to Dashboard</button>
+            <button class="btn-outline" onclick="showPage('home')">Back to Home</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- PAGE: TRACK REQUEST -->
+<main id="page-track" class="page">
+  <section class="page-hero blue-hero">
+    <div class="container">
+      <span class="section-badge white-badge">Live Tracking</span>
+      <h1 class="page-hero-title">📍 Track Your Request</h1>
+      <p class="page-hero-sub">Real-time status updates for your assistance request — from submission to delivery.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="track-search-bar">
+        <input type="text" id="trackInput" placeholder="Enter Request ID (e.g. BC1024)" value="BC1024" />
+        <button class="btn-primary" onclick="trackRequest()">Track</button>
+      </div>
+      <div class="track-card" id="trackCard">
+        <div class="track-header">
+          <div class="track-id-badge">Request #<strong>BC1024</strong></div>
+          <div class="track-type-badge">🍛 Dinner Assistance</div>
+        </div>
+        <div class="track-details-row">
+          <div class="track-detail"><span>Volunteer</span><strong>Rahul S. 🙋</strong></div>
+          <div class="track-detail"><span>Request Type</span><strong>Dinner from Mess</strong></div>
+          <div class="track-detail"><span>Hostel</span><strong>Boys Hostel A</strong></div>
+          <div class="track-detail"><span>Room</span><strong>304</strong></div>
+          <div class="track-detail"><span>Submitted</span><strong>7:12 PM</strong></div>
+        </div>
+        <div class="track-timeline">
+          <div class="timeline-step completed">
+            <div class="ts-dot"></div><div class="ts-line"></div>
+            <div class="ts-content"><div class="ts-title">✅ Request Submitted</div><div class="ts-time">7:12 PM</div></div>
+          </div>
+          <div class="timeline-step completed">
+            <div class="ts-dot"></div><div class="ts-line"></div>
+            <div class="ts-content"><div class="ts-title">✅ Volunteer Assigned</div><div class="ts-sub">Rahul S. accepted your request</div><div class="ts-time">7:18 PM</div></div>
+          </div>
+          <div class="timeline-step active">
+            <div class="ts-dot pulse"></div><div class="ts-line"></div>
+            <div class="ts-content"><div class="ts-title">🍛 Food Being Collected</div><div class="ts-sub">Volunteer is at the mess collecting your meal</div><div class="ts-time">7:22 PM</div></div>
+          </div>
+          <div class="timeline-step pending">
+            <div class="ts-dot"></div><div class="ts-line"></div>
+            <div class="ts-content"><div class="ts-title">○ On the Way to Your Room</div><div class="ts-time">—</div></div>
+          </div>
+          <div class="timeline-step pending">
+            <div class="ts-dot"></div>
+            <div class="ts-content"><div class="ts-title">○ Delivered</div><div class="ts-time">—</div></div>
+          </div>
+        </div>
+        <div class="track-actions">
+          <button class="btn-outline-sm">📞 Contact Volunteer</button>
+          <button class="btn-outline-sm danger">❌ Cancel Request</button>
+        </div>
+      </div>
+      <div class="sample-requests-section">
+        <h3>Sample Recent Requests <span class="demo-label">(Demo Data)</span></h3>
+        <div class="sample-req-list">
+          <div class="sample-req" onclick="loadTrack('BC1023','Lunch Assistance','completed')"><span class="req-id">BC1023</span><span class="req-type">🍛 Lunch</span><span class="status-pill status-completed">Completed</span></div>
+          <div class="sample-req" onclick="loadTrack('BC1024','Dinner Assistance','active')"><span class="req-id">BC1024</span><span class="req-type">🍛 Dinner</span><span class="status-pill status-active">In Progress</span></div>
+          <div class="sample-req" onclick="loadTrack('BC1025','Package Collection','pending')"><span class="req-id">BC1025</span><span class="req-type">📦 Package</span><span class="status-pill status-pending">Pending</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- PAGE: SAFETY -->
+<main id="page-safety" class="page">
+  <section class="page-hero dark-hero">
+    <div class="container">
+      <span class="section-badge white-badge">Trust &amp; Safety</span>
+      <h1 class="page-hero-title">🔒 Safety Comes First</h1>
+      <p class="page-hero-sub">BennettCare is built with student safety as its highest priority.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="safety-grid">
+        <div class="safety-card"><div class="safety-icon">🪪</div><h3>Verified Students Only</h3><p>Only verified Bennett University enrolled students can participate as request-makers or volunteers.</p></div>
+        <div class="safety-card"><div class="safety-icon">🔐</div><h3>Credential Verification</h3><p>Student identity is verified using enrollment credentials before any request or volunteer activity.</p></div>
+        <div class="safety-card"><div class="safety-icon">🙈</div><h3>Minimal Data Access</h3><p>Volunteers do not access unnecessary personal information. Requests contain only essential details.</p></div>
+        <div class="safety-card"><div class="safety-icon">✅</div><h3>Delivery Confirmation</h3><p>Package handover requires confirmation from the recipient. Food delivery has a two-way confirmation mechanism.</p></div>
+        <div class="safety-card"><div class="safety-icon">❌</div><h3>Request Cancellation</h3><p>Students can cancel their requests at any time before delivery is completed.</p></div>
+        <div class="safety-card"><div class="safety-icon">🚨</div><h3>Report Suspicious Activity</h3><p>Any suspicious activity or misuse of the platform can be immediately reported and reviewed.</p></div>
+        <div class="safety-card"><div class="safety-icon">📜</div><h3>Accountability History</h3><p>A complete history of all assistance requests is maintained for accountability and review.</p></div>
+        <div class="safety-card"><div class="safety-icon">👮</div><h3>Admin Oversight</h3><p>An admin dashboard allows university staff to monitor all requests, volunteers, and flagged activities.</p></div>
+      </div>
+      <div class="emergency-section">
+        <div class="emergency-banner">
+          <div class="emergency-icon">🆘</div>
+          <div>
+            <h2>Need Immediate Help?</h2>
+            <p>BennettCare is intended for <strong>non-medical campus assistance</strong>. For serious medical emergencies, students should immediately contact the university's official emergency, security, or medical services.</p>
+            <p class="emergency-note">⚠️ <strong>BennettCare is NOT a replacement for emergency medical services.</strong></p>
+          </div>
+        </div>
+        <div class="emergency-buttons">
+          <a href="tel:+911" class="btn-emergency">📞 Contact Campus Security</a>
+          <a href="tel:+911" class="btn-emergency-secondary">🏥 Contact Medical Services</a>
+          <button class="btn-outline" onclick="showPage('request-food')">🤝 Request Student Assistance</button>
+        </div>
+      </div>
+      <div class="report-section">
+        <h3>Report an Issue</h3>
+        <p>Experienced a problem with a request or volunteer? Help us maintain a safe platform.</p>
+        <button class="btn-danger">🚨 Report an Issue</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- PAGE: DASHBOARD -->
+<main id="page-dashboard" class="page">
+  <section class="section dashboard-section">
+    <div class="container">
+      <div class="dashboard-header">
+        <div>
+          <h1>Hello, Ujaswi 👋</h1>
+          <p class="dash-sub">S24SCSET102 · Boys Hostel A, Room 304 · <span class="online-dot"></span> Online</p>
+        </div>
+        <div class="dash-header-actions">
+          <button class="btn-outline-sm" onclick="showPage('admin')">🖥️ Admin View</button>
+          <button class="btn-danger-sm">Logout</button>
+        </div>
+      </div>
+      <div class="dash-section">
+        <h2 class="dash-section-title">Quick Actions</h2>
+        <div class="quick-actions-grid">
+          <button class="quick-action-btn food" onclick="showPage('request-food')"><span class="qa-icon">🍛</span><span>Request Food</span></button>
+          <button class="quick-action-btn delivery" onclick="showPage('request-delivery')"><span class="qa-icon">📦</span><span>Request Delivery</span></button>
+          <button class="quick-action-btn general" onclick="showPage('request-food')"><span class="qa-icon">🤝</span><span>General Assistance</span></button>
+          <button class="quick-action-btn emergency" onclick="showPage('safety')"><span class="qa-icon">🆘</span><span>Emergency</span></button>
+          <button class="quick-action-btn volunteer" onclick="showPage('volunteer')"><span class="qa-icon">🙋</span><span>Become Volunteer</span></button>
+        </div>
+      </div>
+      <div class="dash-section">
+        <div class="dash-section-row">
+          <h2 class="dash-section-title">Current Requests</h2>
+          <button class="btn-outline-sm" onclick="showPage('track')">View All</button>
+        </div>
+        <div class="request-cards">
+          <div class="req-card status-active-card">
+            <div class="req-card-top"><div class="req-icon">🍛</div><div class="req-info"><div class="req-title">Food Collection — Dinner</div><div class="req-id-small">ID: BC1024</div></div><div class="status-pill status-active">In Progress</div></div>
+            <div class="req-details"><span>Volunteer: Rahul S.</span><span>Submitted: 7:12 PM</span></div>
+            <div class="req-progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+            <button class="btn-outline-sm mt-1" onclick="showPage('track')">Track →</button>
+          </div>
+          <div class="req-card status-pending-card">
+            <div class="req-card-top"><div class="req-icon">📦</div><div class="req-info"><div class="req-title">Package Collection — Amazon</div><div class="req-id-small">ID: BC1025</div></div><div class="status-pill status-pending">Waiting</div></div>
+            <div class="req-details"><span>No volunteer yet</span><span>Submitted: 8:00 PM</span></div>
+            <div class="req-progress-bar"><div class="progress-fill pending-fill" style="width:15%"></div></div>
+            <button class="btn-outline-sm mt-1" onclick="showPage('track')">Track →</button>
+          </div>
+          <div class="req-card status-completed-card">
+            <div class="req-card-top"><div class="req-icon">🤝</div><div class="req-info"><div class="req-title">General Assistance</div><div class="req-id-small">ID: BC1023</div></div><div class="status-pill status-completed">Completed</div></div>
+            <div class="req-details"><span>Volunteer: Priya K.</span><span>Completed: 2:30 PM</span></div>
+            <div class="req-progress-bar"><div class="progress-fill done-fill" style="width:100%"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="dash-section">
+        <h2 class="dash-section-title">Nearby Volunteers <span class="demo-label">(Demo)</span></h2>
+        <div class="volunteer-list">
+          <div class="vol-item"><div class="vol-avatar">R</div><div class="vol-meta"><strong>Rahul S.</strong><span>Boys Hostel A · Room 210</span></div><span class="vol-status available">🟢 Available</span></div>
+          <div class="vol-item"><div class="vol-avatar">P</div><div class="vol-meta"><strong>Priya K.</strong><span>Girls Hostel A · Room 115</span></div><span class="vol-status busy">🟡 Busy</span></div>
+          <div class="vol-item"><div class="vol-avatar">A</div><div class="vol-meta"><strong>Arjun M.</strong><span>Boys Hostel B · Room 308</span></div><span class="vol-status available">🟢 Available</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- PAGE: ADMIN -->
+<main id="page-admin" class="page">
+  <section class="section admin-section">
+    <div class="container">
+      <div class="admin-header">
+        <div><span class="admin-badge">Admin Panel</span><h1>BennettCare Administration</h1><p>Platform overview and management · <span class="demo-label">Demo Data</span></p></div>
+        <button class="btn-outline" onclick="showPage('dashboard')">← Student View</button>
+      </div>
+      <div class="admin-stats">
+        <div class="admin-stat-card blue-card"><div class="admin-stat-num">120</div><div class="admin-stat-label">Total Requests</div><div class="admin-stat-trend">↑ 12 this week</div></div>
+        <div class="admin-stat-card orange-card"><div class="admin-stat-num">18</div><div class="admin-stat-label">Pending</div><div class="admin-stat-trend">⏳ Awaiting volunteer</div></div>
+        <div class="admin-stat-card green-card"><div class="admin-stat-num">12</div><div class="admin-stat-label">Active</div><div class="admin-stat-trend">🔄 In Progress</div></div>
+        <div class="admin-stat-card teal-card"><div class="admin-stat-num">90</div><div class="admin-stat-label">Completed</div><div class="admin-stat-trend">✅ 75% success rate</div></div>
+        <div class="admin-stat-card purple-card"><div class="admin-stat-num">25</div><div class="admin-stat-label">Volunteers Online</div><div class="admin-stat-trend">🟢 Active now</div></div>
+      </div>
+      <div class="admin-tables">
+        <div class="admin-table-card">
+          <div class="admin-table-header"><h3>Recent Requests</h3><select class="admin-filter"><option>All Status</option><option>Pending</option><option>Active</option><option>Completed</option></select></div>
+          <table class="admin-table">
+            <thead><tr><th>ID</th><th>Student</th><th>Type</th><th>Hostel/Room</th><th>Status</th><th>Time</th></tr></thead>
+            <tbody>
+              <tr><td>BC1025</td><td>Ujaswi T.</td><td>📦 Package</td><td>BH-A/304</td><td><span class="status-pill status-pending">Pending</span></td><td>8:00 PM</td></tr>
+              <tr><td>BC1024</td><td>Ujaswi T.</td><td>🍛 Dinner</td><td>BH-A/304</td><td><span class="status-pill status-active">Active</span></td><td>7:12 PM</td></tr>
+              <tr><td>BC1023</td><td>Ananya S.</td><td>🍛 Lunch</td><td>GH-A/202</td><td><span class="status-pill status-completed">Done</span></td><td>1:05 PM</td></tr>
+              <tr><td>BC1022</td><td>Rohan M.</td><td>📦 Amazon</td><td>BH-B/110</td><td><span class="status-pill status-completed">Done</span></td><td>11:30 AM</td></tr>
+              <tr><td>BC1021</td><td>Meera P.</td><td>🤝 General</td><td>GH-B/305</td><td><span class="status-pill status-completed">Done</span></td><td>9:45 AM</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="admin-table-card">
+          <div class="admin-table-header"><h3>Volunteer Assignments</h3><button class="btn-outline-sm">Export CSV</button></div>
+          <table class="admin-table">
+            <thead><tr><th>Volunteer</th><th>Request</th><th>Status</th><th>Deliveries</th></tr></thead>
+            <tbody>
+              <tr><td>Rahul S. 🟢</td><td>BC1024</td><td><span class="status-pill status-active">Active</span></td><td>14</td></tr>
+              <tr><td>Priya K. 🟡</td><td>BC1023</td><td><span class="status-pill status-completed">Done</span></td><td>22</td></tr>
+              <tr><td>Arjun M. 🟢</td><td>—</td><td><span class="status-pill available-pill">Available</span></td><td>8</td></tr>
+              <tr><td>Divya R. 🟢</td><td>—</td><td><span class="status-pill available-pill">Available</span></td><td>17</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="admin-table-card analytics-card">
+        <div class="admin-table-header"><h3>📊 Weekly Request Analytics <span class="demo-label">(Demo)</span></h3></div>
+        <div class="bar-chart">
+          <div class="bar-group"><div class="bar" style="height:40%"></div><span>Mon</span></div>
+          <div class="bar-group"><div class="bar" style="height:65%"></div><span>Tue</span></div>
+          <div class="bar-group"><div class="bar" style="height:55%"></div><span>Wed</span></div>
+          <div class="bar-group"><div class="bar" style="height:80%"></div><span>Thu</span></div>
+          <div class="bar-group"><div class="bar" style="height:70%"></div><span>Fri</span></div>
+          <div class="bar-group"><div class="bar" style="height:45%"></div><span>Sat</span></div>
+          <div class="bar-group"><div class="bar" style="height:30%"></div><span>Sun</span></div>
+        </div>
+      </div>
+      <div class="admin-table-card">
+        <div class="admin-table-header"><h3>🚨 Reported Issues</h3><span class="badge-count">0 Open</span></div>
+        <div class="empty-state"><span>✅</span><p>No reported issues at this time. Platform is running smoothly.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- PAGE: ABOUT -->
+<main id="page-about" class="page">
+  <section class="page-hero blue-hero">
+    <div class="container">
+      <span class="section-badge white-badge">About</span>
+      <h1 class="page-hero-title">About BennettCare</h1>
+      <p class="page-hero-sub">A student-driven prototype for a more inclusive campus at Bennett University.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="about-layout">
+        <div class="about-content">
+          <h2>About the Project</h2>
+          <p class="about-text">BennettCare is a student-driven prototype created to explore how technology can solve everyday accessibility and assistance challenges faced by hostel students at Bennett University, Greater Noida.</p>
+          <p class="about-text">The project demonstrates that a structured, digital platform can bridge the gap between students who temporarily cannot access campus facilities and willing, verified student volunteers who can help.</p>
+          <div class="about-mission-card">
+            <h3>🎯 Core Mission</h3>
+            <blockquote>"If you cannot reach the mess or the gate, the help can reach <em>you</em>."</blockquote>
+          </div>
+          <div class="about-disclaimer">
+            <strong>⚠️ Important Disclaimer</strong>
+            <p>This project is a proposed student solution/prototype and is <strong>not an official Bennett University service</strong> unless formally approved and integrated by the university.</p>
+          </div>
+        </div>
+        <div class="creator-card">
+          <div class="creator-avatar">OT</div>
+          <h3>Created by</h3>
+          <h2 class="creator-name">Ojasvee Tyagi</h2>
+          <div class="creator-detail"><span>📋 Enrollment No.</span><strong>S24SCSET102</strong></div>
+          <div class="creator-detail"><span>🎓 University</span><strong>Bennett University</strong></div>
+          <div class="creator-detail"><span>📍 Location</span><strong>Greater Noida, UP</strong></div>
+          <div class="creator-tagline">"Technology should solve real problems — starting right here on campus."</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <div class="footer-logo"><span class="logo-icon">🏥</span><span class="logo-text">Bennett<span class="logo-accent">Care</span></span></div>
+      <p class="footer-tagline">No Student Should Stay Hungry or Stranded.</p>
+      <p class="footer-sub">Campus assistance, when you need it most.</p>
+    </div>
+    <div class="footer-links-group">
+      <h4>Platform</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('home')">Home</a></li>
+        <li><a href="#" onclick="showPage('how-it-works')">How It Works</a></li>
+        <li><a href="#" onclick="showPage('request-food')">Request Assistance</a></li>
+        <li><a href="#" onclick="showPage('volunteer')">Volunteer</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-group">
+      <h4>Information</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('track')">Track Request</a></li>
+        <li><a href="#" onclick="showPage('safety')">Safety</a></li>
+        <li><a href="#" onclick="showPage('about')">About</a></li>
+        <li><a href="#" onclick="showPage('admin')">Admin Panel</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-group">
+      <h4>Emergency</h4>
+      <div class="footer-emergency">
+        <p>🚨 For medical emergencies, contact university services directly.</p>
+        <a href="tel:+911" class="footer-emergency-btn">📞 Campus Security</a>
+        <a href="tel:+911" class="footer-emergency-btn secondary">🏥 Medical Services</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Designed as a student innovation prototype for Bennett University</p>
+    <p>© 2026 BennettCare · Created by Ojasvee Tyagi · S24SCSET102</p>
+    <p class="footer-disclaimer">This is a prototype and is not an official Bennett University service.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
